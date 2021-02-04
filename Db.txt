@@ -1,0 +1,4 @@
+user: fastcookUser
+password: fastcook-2021
+
+mongo "mongodb+srv://cluster0.cjwty.mongodb.net/<dbname>" --username fastcookUser
