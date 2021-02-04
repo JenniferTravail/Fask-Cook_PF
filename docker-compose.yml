@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  web:
+   build: ./ssl
+   ports:
+    - 80:80
+    - 443:443
+   volumes:
+    - ./ssl/certs:/etc/nginx/certs
+   depends_on:
+    - node
+  node: 
+   image: node

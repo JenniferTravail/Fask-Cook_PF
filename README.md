@@ -5,3 +5,13 @@ Notre application sera fait en React Native. Fast Cook vous fera économiser de 
 
 
 Base de donnée : NoSQL
+
+
+## Génération des certificats
+openssl genrsa -des3 -out root-ac.key 2048
+openssl req -x509 -new -nodes -key root-ac.key -sha256 -days 1825 -out root-ac.pem
+
+openssl genrsa -des3 -out dev.my-project.com.key 2048
+openssl req -new -key dev.my-project.com.key -out dev.my-project.com.csr
+
+openssl x509 -req -in dev.my-project.com.csr -CA root-ac.pem -CAkey root-ac.key -CAcreateserial -out dev.my-project.com.crt -days 1825
