@@ -5,10 +5,6 @@ const logger = require('morgan');
 const path = require('path');
 const router = require('./routes/index');
 const { auth } = require('express-openid-connect');
-// app.get('/authentication/test', function(req, res){
-//   var server = app.listen(process.env.PORT || 8080, function (){
-//     console.log("Express running on port %s", server.address().port);
-//   });
 
 dotenv.load();
 
@@ -26,7 +22,7 @@ const config = {
   auth0Logout: true
 };
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
   config.baseURL = `http://localhost:${port}`;
 }

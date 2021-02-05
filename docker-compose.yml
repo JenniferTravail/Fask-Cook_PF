@@ -9,7 +9,9 @@ services:
     - 443:443
    volumes:
     - ./ssl/certs:/etc/nginx/certs
-  #  depends_on:
-  #   - node
-  # node: 
-  #  image: node
+   depends_on:
+    - node
+  node: 
+   build: ./AuthenticationApi/01-login
+   volumes:
+    - ./AuthenticationApi/01-login:/app
